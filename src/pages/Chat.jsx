@@ -8,7 +8,7 @@ import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import jwt_decode from "jwt-decode";
 
-import { io } from "socket.io-client";
+import  {io}  from "socket.io-client";
 
 export default function Chat() {
   const socket = useRef(); //???????????????
@@ -54,7 +54,8 @@ export default function Chat() {
   useEffect(() => {
     //socket
     if (currentUser) {
-      socket.current = io(host);
+      // socket.current = io("http://localhost:5000");
+      socket.current = io("http://www.wusi.fun:5002");
       socket.current.emit("add-user", currentUser.id);
     }
   }, [currentUser]);
